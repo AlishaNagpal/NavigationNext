@@ -38,27 +38,33 @@ const TodoNavigator = () => (
     </TopTab.Navigator>
 );
 
-const twoStack = () => (
-    <Stack.Navigator headerMode='none'>
-        <Stack.Screen
-            name={'Check'}
-            component={One}
-            options={{ title: 'Check', tabBarVisible: false }}
-        />
-        <Stack.Screen
-            name={'Check2'}
-            component={Two}
-            options={{ title: 'Check', tabBarVisible: false }}
-        />
-    </Stack.Navigator>
-)
+function twoStack({ navigation, route }) {
+    console.log("Route options", route)
+    navigation.setOptions({ tabBarVisible: route.state ? route.state.index > 0 ? false : true : null });
+    return (
+        <Stack.Navigator headerMode='none'>
+            <Stack.Screen
+                name={'Check'}
+                component={One}
+                options={{ title: 'Check' }}
+            />
+            <Stack.Screen
+                name={'Check2'}
+                component={Two}
+                options={{ title: 'Check' }}
+            />
+        </Stack.Navigator>
+    )
+}
 
 const HomeBottomNavigator = () => (
     < BottomTab.Navigator >
         <BottomTab.Screen
             name={'Main'}
             component={twoStack}
-            options={{ title: 'Main' }}
+            options={({ route }) => ({
+                // tabBarVisible: 
+            })}
         />
         <BottomTab.Screen
             name={'One'}
