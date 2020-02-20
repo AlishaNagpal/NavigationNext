@@ -15,6 +15,11 @@ export default class HomeComponent extends React.Component<HomeProps, HomeState>
         };
     }
 
+    componentDidMount(){
+        console.log('getting Value', this.props);
+        
+    }
+
     public render() {
         return (
             <View style={styles.main}>

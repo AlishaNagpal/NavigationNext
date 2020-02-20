@@ -41,10 +41,10 @@ const forFade2 = ({ current, next }) => {
     backgroundStyle: { opacity },
   };
 };
-function App() {
+function App(props: any) {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator {...props}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen
           name="Main"

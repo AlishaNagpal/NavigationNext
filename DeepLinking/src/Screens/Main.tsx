@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
 export interface MainProps {
+  navigation:any
 }
 
 export interface MainState {
@@ -12,6 +13,9 @@ export default class MainComponent extends React.Component<MainProps, MainState>
     super(props);
     this.state = {
     };
+  }
+  componentDidMount(){
+    console.log(this.props.navigation)
   }
 
   public render() {

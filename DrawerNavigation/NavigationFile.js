@@ -25,24 +25,39 @@ function MainClass({ navigation }) {
 
 const TodoNavigator = () => (
     <TopTab.Navigator>
-      <TopTab.Screen
-        name={'OneHere'}
-        component={One}
-        options={{ title: 'IN PROGRESS'}}
-      />
-      <TopTab.Screen
-        name={'TwoHere'}
-        component={Two}
-        options={{ title: 'DONE'}}
-      />
+        <TopTab.Screen
+            name={'OneHere'}
+            component={One}
+            options={{ title: 'IN PROGRESS' }}
+        />
+        <TopTab.Screen
+            name={'TwoHere'}
+            component={Two}
+            options={{ title: 'DONE' }}
+        />
     </TopTab.Navigator>
-  );
+);
+
+const twoStack = () => (
+    <Stack.Navigator headerMode='none'>
+        <Stack.Screen
+            name={'Check'}
+            component={One}
+            options={{ title: 'Check', tabBarVisible: false }}
+        />
+        <Stack.Screen
+            name={'Check2'}
+            component={Two}
+            options={{ title: 'Check', tabBarVisible: false }}
+        />
+    </Stack.Navigator>
+)
 
 const HomeBottomNavigator = () => (
-    <BottomTab.Navigator>
+    < BottomTab.Navigator >
         <BottomTab.Screen
             name={'Main'}
-            component={Main}
+            component={twoStack}
             options={{ title: 'Main' }}
         />
         <BottomTab.Screen
@@ -50,12 +65,12 @@ const HomeBottomNavigator = () => (
             component={One}
             options={{ title: 'One' }}
         />
-         <BottomTab.Screen
+        <BottomTab.Screen
             name={'TodoNavigator'}
             component={TodoNavigator}
             options={{ title: 'Two' }}
         />
-    </BottomTab.Navigator>
+    </BottomTab.Navigator >
 );
 
 const HomeNavigator = () => (
