@@ -161,7 +161,6 @@
 				F59FB94F6E1075BCF6CB47B0 /* Pods-DeepLinkingTests.debug.xcconfig */,
 				92113EDA623BD35E5EF96914 /* Pods-DeepLinkingTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +307,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

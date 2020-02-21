@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Animated } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
+import { Animated, Linking } from "react-native";
+import { NavigationContainer, useLinking } from '@react-navigation/native';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import Home from "./src/Screens/Home";
 import Main from './src/Screens/Main'
@@ -42,8 +42,31 @@ const forFade2 = ({ current, next }) => {
   };
 };
 function App(props: any) {
+
+  const ref = React.useRef();
+
+  const { getInitialState } = useLinking(ref, {
+    prefixes: ['https://mychat.com', 'mychat://'],
+  });
+
+  const [isReady, setIsReady] = React.useState(false);
+  const [initialState, setInitialState] = React.useState();
+
+  React.useEffect(() => {
+    Linking.getInitialURL().then(url => {
+      if (url) {
+        console.log(url)
+      }
+    });
+
+    Linking.addEventListener('url', event => {
+      console.log(event);
+
+    });
+  })
+
   return (
-    <NavigationContainer>
+    <NavigationContainer initialState={initialState} ref={ref} >
       <Stack.Navigator {...props}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen

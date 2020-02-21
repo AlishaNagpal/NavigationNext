@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-
+import { View, StyleSheet, Text, TouchableOpacity, Linking } from 'react-native';
 export interface HomeProps {
     navigation?: any
 }
@@ -15,15 +14,25 @@ export default class HomeComponent extends React.Component<HomeProps, HomeState>
         };
     }
 
-    componentDidMount(){
-        console.log('getting Value', this.props);
-        
-    }
+    // componentDidMount() {
+    //     Linking.getInitialURL()
+    //         .then((url) => {
+    //             if (url) {
+    //                 console.log(url);
+    //                 console.warn('atleast',url)
+
+    //                 // this.OpenURL({ url: url }, Utils.constant.isIOS ? 5000 : 6000)
+    //             }
+    //         })
+    //         .catch((e) => {
+
+    //         })
+    // }
 
     public render() {
         return (
             <View style={styles.main}>
-                <TouchableOpacity onPress={()=>this.props.navigation.navigate('Main')}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Main')}>
                     <Text> Go To Main </Text>
                 </TouchableOpacity>
             </View>
@@ -38,3 +47,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     }
 })
+
