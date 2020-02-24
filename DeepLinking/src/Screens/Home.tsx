@@ -13,22 +13,6 @@ export default class HomeComponent extends React.Component<HomeProps, HomeState>
         this.state = {
         };
     }
-
-    // componentDidMount() {
-    //     Linking.getInitialURL()
-    //         .then((url) => {
-    //             if (url) {
-    //                 console.log(url);
-    //                 console.warn('atleast',url)
-
-    //                 // this.OpenURL({ url: url }, Utils.constant.isIOS ? 5000 : 6000)
-    //             }
-    //         })
-    //         .catch((e) => {
-
-    //         })
-    // }
-
     public render() {
         return (
             <View style={styles.main}>

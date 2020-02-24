@@ -42,15 +42,12 @@ const forFade2 = ({ current, next }) => {
   };
 };
 function App(props: any) {
-
   const ref = React.useRef();
-
   const { getInitialState } = useLinking(ref, {
     prefixes: ['https://mychat.com', 'mychat://'],
   });
-
-  const [isReady, setIsReady] = React.useState(false);
-  const [initialState, setInitialState] = React.useState();
+  // const [isReady, setIsReady] = React.useState(false);
+  // const [initialState, setInitialState] = React.useState();
 
   React.useEffect(() => {
     Linking.getInitialURL().then(url => {
@@ -61,12 +58,11 @@ function App(props: any) {
 
     Linking.addEventListener('url', event => {
       console.log(event);
-
     });
   })
 
   return (
-    <NavigationContainer initialState={initialState} ref={ref} >
+    <NavigationContainer ref={ref} >
       <Stack.Navigator {...props}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen
